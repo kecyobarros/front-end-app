@@ -1,0 +1,4 @@
+{
+    "URL_USER_APP" : "http://localhost:8080",
+    "URL_DEVICE_APP" : "http://localhost:8081"
+}
