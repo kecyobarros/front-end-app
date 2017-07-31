@@ -10,11 +10,18 @@
               {{name}}
           </div>
           <div class="col-xs-1">
-              <button type="button" class="btn btn-info" data-action="detalhe">Detalhes</button>
+              <button type="button" class="btn btn-info" data-action="detalhe"
+              data-toggle="modal" data-target="#myModal">Detalhes</button>
           </div>
         </div>
         <hr>
       {{/each}}
     </div>
+    <nav aria-label="...">
+      <ul class="pager">
+        <li><a href="#">Previous</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
+    </nav>
   </div>
 </template>

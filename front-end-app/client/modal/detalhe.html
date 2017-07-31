@@ -1,0 +1,75 @@
+<!-- <template name="devicePage">
+  {{#each devices}}
+    <div class="row">
+      <div class="col-xs-5">
+          {{id}}
+      </div>
+      <div class="col-xs-6">
+          {{userId}}
+      </div>
+    </div>
+    <hr>
+  {{/each}}
+</template> -->
+
+<template name="modalDetalhe">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myModalLabel">Detalhe Device</h4>
+    </div>
+    <div class="modal-body">
+      {{#each devices}}
+        <div class="row">
+          <div class="col-xs-3">
+              <h5><b>Id Device</b></h5>
+              {{id}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Modelo</h5>
+              {{model}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Sistema</h5>
+              {{systemOS.name}}
+          </div>
+          <div class="col-xs-3">
+              <h5>Versão Sistema</h5>
+              {{systemOS.version}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Casa Lng.</h5>
+              {{home.longitude}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Casa Lat.</h5>
+              {{home.latitude}}
+          </div>
+          <div class="col-xs-3">
+              <h5>Trabalho Lng.</h5>
+              {{work.longitude}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Trabalho Lat.</h5>
+              {{work.latitude}}
+          </div>
+          <div class="col-xs-4">
+              <h5>App Instalados</h5>
+              {{appsInstalled}}
+          </div>
+        </div>
+            <div class="modal-body">
+                      <h4 class="modal-title" id="myModalLabel">Visitas</h4>
+            </div>
+        <hr>
+      {{/each}}
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+</template>

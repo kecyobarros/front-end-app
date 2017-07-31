@@ -9,8 +9,6 @@ Template.lista.events({
     "click [data-action='detalhe']": function (event, template) {
         event.preventDefault();
         var user = this;
-        Meteor.call('deviceFindById', user.devices, function (error, result) {
-            alert(result[0].id);
-        });
+        Meteor.call('deviceFindByUserId', user.id);
     }
 });

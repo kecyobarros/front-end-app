@@ -5,4 +5,9 @@ Meteor.startup(() => {
   Meteor.publish("users", function(){
     return UserCollection.find({});
   });
+
+  Meteor.publish("devices", function(){
+    return DeviceCollection.find({});
+  });
+
 });
