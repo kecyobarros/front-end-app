@@ -1,17 +1,3 @@
-<!-- <template name="devicePage">
-  {{#each devices}}
-    <div class="row">
-      <div class="col-xs-5">
-          {{id}}
-      </div>
-      <div class="col-xs-6">
-          {{userId}}
-      </div>
-    </div>
-    <hr>
-  {{/each}}
-</template> -->
-
 <template name="modalDetalhe">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document">
@@ -23,7 +9,7 @@
     <div class="modal-body">
       {{#each devices}}
         <div class="row">
-          <div class="col-xs-3">
+          <div class="col-xs-4">
               <h5><b>Id Device</b></h5>
               {{id}}
           </div>
@@ -35,7 +21,9 @@
               <h5>Sistema</h5>
               {{systemOS.name}}
           </div>
-          <div class="col-xs-3">
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
               <h5>Versão Sistema</h5>
               {{systemOS.version}}
           </div>
@@ -47,7 +35,9 @@
               <h5>Casa Lat.</h5>
               {{home.latitude}}
           </div>
-          <div class="col-xs-3">
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
               <h5>Trabalho Lng.</h5>
               {{work.longitude}}
           </div>
@@ -60,9 +50,80 @@
               {{appsInstalled}}
           </div>
         </div>
-            <div class="modal-body">
-                      <h4 class="modal-title" id="myModalLabel">Visitas</h4>
-            </div>
+        <div>
+          <h4>Visitas</h4>
+        </div>
+        <div class="pre-scrollable">
+        {{#each visits}}
+        <hr>
+        <div class="row">
+          <div class="col-xs-4">
+              <h5>Status Bateria</h5>
+              {{batteryState}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Percentual Bateria</h5>
+              {{batteryPercentage}}%
+          </div>
+          <div class="col-xs-4">
+              <h5>Data arrival</h5>
+              {{arrival}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+              <h5>Data departure</h5>
+              {{departure}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Categoria</h5>
+              {{categorie}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Visita</h5>
+              {{venue.name}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+              <h5>Longitude</h5>
+              {{venue.longitude}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Latitude</h5>
+              {{venue.latitude}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Total Time</h5>
+              {{venue.totalTime}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+              <h5>Precisão</h5>
+              {{venue.precision}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Rua</h5>
+              {{venue.address}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Cidade</h5>
+              {{venue.city}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+              <h5>Estado</h5>
+              {{venue.state}}
+          </div>
+          <div class="col-xs-4">
+              <h5>Pais</h5>
+              {{venue.country}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
         <hr>
       {{/each}}
     </div>
