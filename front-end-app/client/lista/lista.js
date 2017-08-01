@@ -1,11 +1,9 @@
 Template.lista.helpers({
-
   usuarios : function(){
     var pagina = 0;
-    Session.set("pagina", pagina);
+    setPagina(pagina);
     Meteor.call('userFindPage', pagina);
-    var json = UserCollection.find({});
-    return json;
+    return UserCollection.find({});
   }
 });
 
@@ -39,6 +37,10 @@ anteriorPagina = function(){
   return pagina;
 }
 
+busarPorPagina = function(pagina){
+    Meteor.call('userFindPage', pagina);
+}
+
 Template.lista.events({
     "click [data-action='detalhe']": function (event, template) {
         event.preventDefault();
@@ -48,17 +50,13 @@ Template.lista.events({
 
     "click [data-action='previous']": function (event, template) {
         event.preventDefault();
-        var pagina = getPagina();
-
-        if (pagina > 0){
-          pagina = anteriorPagina();
-          Meteor.call('userFindPage', pagina);
+        if (getPagina() > 0){
+          busarPorPagina(anteriorPagina());
         }
     },
 
     "click [data-action='next']": function (event, template) {
         event.preventDefault();
-        var pagina = proximaPagina();
-        Meteor.call('userFindPage', pagina);
+        busarPorPagina(proximaPagina());
     }
 });
