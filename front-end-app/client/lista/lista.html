@@ -1,4 +1,10 @@
 <template name="lista">
+  <nav aria-label="...">
+    <ul class="pager">
+      <li id="liPrevious" class="disabled"><a data-action="previous" href="#">Previous</a></li>
+      <li id="liNext" ><a data-action="next" href="#">Next</a></li>
+    </ul>
+  </nav>
   <div class="row">
     <div class="col-xs-12">
       {{#each usuarios}}
@@ -19,8 +25,8 @@
     </div>
     <nav aria-label="...">
       <ul class="pager">
-        <li><a href="#">Previous</a></li>
-        <li><a href="#">Next</a></li>
+        <li id="liPreviousFooter" class="disabled"><a data-action="previous" href="#">Previous</a></li>
+        <li id="liNextFooter" ><a data-action="next" href="#">Next</a></li>
       </ul>
     </nav>
   </div>
