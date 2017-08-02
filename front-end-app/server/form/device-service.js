@@ -28,10 +28,16 @@ deviceController.App = (function () {
 
 Meteor.methods({
     deviceFindByUserId: function (id) {
-        DeviceCollection.remove({});
+        var connectionID = this.connection.id;
+        DeviceCollection.remove({sessionID: connectionID});
         var result = deviceController.App.uriFindByUserId(id);
         for (var k in result){
-          DeviceCollection.insert(result[k]);
+          var json = result[k];
+          json.sessionID = connectionID;
+          DeviceCollection.insert(json);
         }
-    }
+    },
+    removeDevices: function (connectionID){
+      DeviceCollection.remove({sessionID: connectionID});
+    },
 });

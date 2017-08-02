@@ -4,7 +4,6 @@ userController.Services = (function () {
     'use strict';
 
     function uriFindPage(page) {
-        console.log(Meteor.settings["URL_USER_APP"] + "/api/user/" + page);
         return Meteor.settings["URL_USER_APP"] + "/api/user/" + page;
     }
 
@@ -41,12 +40,18 @@ userController.App = (function () {
 
 Meteor.methods({
     userFindPage: function (page) {
-        UserCollection.remove({});
+        var connectionID = this.connection.id;
+        UserCollection.remove({sessionID: connectionID});
         var result = userController.App.uriFindPage(page);
         for (var k in result.content){
-        //  console.log(result.content[k]);
+          var json = result.content[k];
+          json.sessionID = connectionID;
           UserCollection.insert(result.content[k]);
         }
+    },
+
+    removeUsers: function (connectionID){
+      UserCollection.remove({sessionID: connectionID});
     },
 
     uriFindById: function (id) {

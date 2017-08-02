@@ -1,5 +1,6 @@
 Template.modalDetalhe.helpers({
   devices : function(){
-    return DeviceCollection.find({});
+    var session = Session.get("sessionID");
+    return DeviceCollection.find({sessionID: session});
   }
 });

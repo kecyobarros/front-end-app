@@ -2,8 +2,9 @@ Template.lista.helpers({
   usuarios : function(){
     var pagina = 0;
     setPagina(pagina);
+    var session = Session.get("sessionID");
     Meteor.call('userFindPage', pagina);
-    return UserCollection.find({});
+    return UserCollection.find({sessionID: session});
   }
 });
 

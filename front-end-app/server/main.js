@@ -10,4 +10,16 @@ Meteor.startup(() => {
     return DeviceCollection.find({});
   });
 
+  Meteor.onConnection(function (conn) {
+      conn.onClose(function () {
+        Meteor.call('removeUsers', conn.id);
+        Meteor.call('removeDevices', conn.id);
+      });
+  });
+
+  Meteor.methods({
+    getSessionId: function() {
+      return this.connection.id;
+    }
+  });
 });
